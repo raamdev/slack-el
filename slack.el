@@ -67,8 +67,8 @@
 (defvar slack-url "https://slack.com/api/")
 
 ;; data
-(defvar slack-data)
-(defvar slack-new-data)
+(defvar slack-data '())
+(defvar slack-new-data '())
 (defvar slack-state nil "Current state of slack")
 
 ;;; helpers
@@ -105,17 +105,22 @@ otherwise return nil."
   (push (cons type json) slack-new-data)
   (slack-refresh))
 
-;; FIXME: this is broken
-;; (defun slack-load-data-sets ()
-;;   "Process new data sets and return non-nil if a change was made."
-;;   (let (change)
-;;     (while (plusp (length slack-new-data))
-;;       (let ((new (pop slack-new-data)))
-;;         (let ((cur (assoc (car new) slack-data)))
-;;           (when (cl-set-difference new cur)
-;;             (setq (assoc (car new) slack-data) (cdr new)
-;;                   change t)))))
-;;     change))
+(defun slack-load-data-sets ()
+  "Process new data sets and return non-nil if a change was made."
+  ;; FIXME
+  (let ((change))
+    (message "list: %s" slack-new-data) ; list: ((:group (error . token_revoked) (ok . :json-false)))
+    (mapcar (lambda (new-entry)
+              "Update `slack-data' with received input"
+              (message "elem: %s" new-entry) ; elem: (:group (error . token_revoked) (ok . :json-false))
+              (let* ((current-key (car new-entry))
+                     (current-item (assoc current-key slack-data)))
+                (when (cl-set-difference new-entry current-item)
+                  (setcdr (assoc current-item slack-data) (cdr new-entry))
+                  (setq change t))))
+            slack-new-data)
+    (setq slack-new-data '())
+    change))
 
 (defun slack-refresh ()
   "Display data and interface according to `slack-state'."
