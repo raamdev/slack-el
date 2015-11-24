@@ -1,18 +1,13 @@
-;;; slack.el -- Slack client
-;;
-;; Originally authored by Kyle W T Sherman <kylewsherman at gmail dot com>
-;; See http://nullman.net/tutorial/emacs-files/.emacs.d/local-modules/slack.el.html
-;;
-;; Currently hosted on GitHub: https://github.com/raamdev/slack-el
-;;
-;; =======================================
-;; CURRENTLY NOT WORKING; INCOMPLETE
-;; See https://github.com/raamdev/slack-el
-;; =======================================
-;;
+;;; slack.el --- slack client                        -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2013-2015 Kyle W T Sherman
+
+;; Author: Kyle W T Sherman <kylewsherman@gmail.com>
+;; Keywords: comm, convenience
 ;; Created:  2013-12-10
 ;; Version:  1.0
-;; Keywords: slack client
+;; Url: https://github.com/raamdev/slack-el
+
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -31,6 +26,8 @@
 ;;
 ;;; Commentary:
 ;;
+;; Originally authored by Kyle W T Sherman <kylewsherman at gmail dot com>
+;; See http://nullman.net/tutorial/emacs-files/.emacs.d/local-modules/slack.el.html
 ;; =======================================
 ;; CURRENTLY NOT WORKING; INCOMPLETE
 ;; See https://github.com/raamdev/slack-el
@@ -200,5 +197,4 @@ otherwise return nil."
     (slack-channel-list)))
 
 (provide 'slack)
-
 ;;; slack.el ends here
