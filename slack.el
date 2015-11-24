@@ -69,6 +69,7 @@
 ;; data
 (defvar slack-data)
 (defvar slack-new-data)
+(defvar slack-state nil "Current state of slack")
 
 ;;; helpers
 (defmacro json-true (val)
@@ -182,12 +183,12 @@ otherwise return nil."
   (let ((buffer (get-buffer-create slack-buffer-name)))
     (set-buffer buffer)
     ;; (kill-all-local-variables)
-    (unless (local-variable-if-set-p slack-state)
-      (set (make-local-variable slack-state) '(:top . nil)))
-    (unless (local-variable-if-set-p slack-data)
-      (make-local-variable slack-data))
-    (unless (local-variable-if-set-p slack-new-data)
-      (make-local-variable slack-new-data))
+    (unless (local-variable-if-set-p 'slack-state)
+      (set (make-local-variable 'slack-state) '(:top . nil)))
+    (unless (local-variable-if-set-p 'slack-data)
+      (make-local-variable 'slack-data))
+    (unless (local-variable-if-set-p 'slack-new-data)
+      (make-local-variable 'slack-new-data))
     (slack-group-list)
     (slack-channel-list)))
 
