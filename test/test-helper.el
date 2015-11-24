@@ -6,6 +6,11 @@
 ;;; Code:
 
 (require 'f)
+(require 'undercover)
+(undercover "*.el" "slack-el/*.el"
+            (:exclude "*-test.el")
+            (:send-report nil)
+            (:report-file "/tmp/undercover-report.json"))
 
 (defvar cpt-path
   (f-parent (f-this-file)))

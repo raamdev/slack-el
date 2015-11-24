@@ -1,4 +1,8 @@
 (require 'f)
+(require 'undercover)
+(undercover "*.el" "slack-el/*.el"
+            (:exclude "*-test.el")
+            (:report-file "/tmp/undercover-report.json"))
 
 (defvar slack-el-support-path
   (f-dirname load-file-name))
