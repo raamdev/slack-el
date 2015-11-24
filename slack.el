@@ -47,33 +47,30 @@
 
 (require 'json)
 
-;; customize group
 (defgroup slack nil
   "Slack client."
   :prefix "slack-"
   :group 'applications)
 
-;; slack buffer name
 (defcustom slack-buffer-name
   "*Slack*"
   "Slack buffer name."
   :type 'string
   :group 'slack)
 
-;; slack token
 (defcustom slack-token
   "xoxp-2151144447-2151498120-2155203918-21ecbe"
   "Slack token."
   :type 'string
   :group 'slack)
 
-;; slack api url
 (defvar slack-url "https://slack.com/api/")
 
 ;; data
 (defvar slack-data)
 (defvar slack-new-data)
 
+;;; helpers
 (defmacro json-true (val)
   "Return non-nil if val is not `eq' to ':json_false`,
 otherwise return nil."
@@ -84,7 +81,6 @@ otherwise return nil."
 otherwise return nil."
   `(eq ,val :json-false))
 
-;; submit query
 (defun slack-query (callback type method &optional args)
   "Call CALLBACK with resulting JSON from submitting ARGS to slack METHOD."
   (let* ((url-request-method "GET")
@@ -176,7 +172,6 @@ otherwise return nil."
   "Fetch list of channels."
   (slack-query 'slack-new-data-set :channel "channels.list"))
 
-;; start slack client
 ;;;###autoload
 (defun slack ()
   "Start Slack client."
