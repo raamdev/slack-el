@@ -1,6 +1,15 @@
 slack-el
 ========
 
+[![Build Status](https://travis-ci.org/raamdev/slack-el.svg)](https://travis-ci.org/raamdev/slack-el)
+[![Coverage Status](https://coveralls.io/repos/raamdev/slack-el/badge.svg)](https://coveralls.io/r/raamdev/slack-el)
+<!-- waiting for melpa recipe
+[![MELPA](http://melpa.org/packages/slack-el-badge.svg)](http://melpa.org/#/slack-el)
+[![MELPA stable](http://stable.melpa.org/packages/slack-el-badge.svg)](http://stable.melpa.org/#/slack-el)
+[![Tag Version](https://img.shields.io/github/tag/raamdev/slack-el.svg)](https://github.com/raamdev/slack-el/tags)
+-->
+[![License] (http://img.shields.io/:license-gpl3-blue.svg)](./LICENCE)
+
 A Slack client for Emacs
 
 #### NOTE: CURRENTLY NOT WORKING; INCOMPLETE (see below)
