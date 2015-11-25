@@ -7,7 +7,7 @@
 
 (require 'f)
 (require 'undercover)
-(undercover "*.el" "slack-el/*.el"
+(undercover "*.el" "slack/*.el"
             (:exclude "*-test.el")
             (:send-report nil)
             (:report-file "/tmp/undercover-report.json"))
@@ -37,7 +37,7 @@
      (f-delete default-directory :force)))
 
 (require 'ert)
-(require 'slack-el)
+(require 'slack)
 
 (provide 'test-helper)
 ;;; test-helper.el ends here

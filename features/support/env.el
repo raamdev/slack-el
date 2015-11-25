@@ -1,6 +1,6 @@
 (require 'f)
 (require 'undercover)
-(undercover "*.el" "slack-el/*.el"
+(undercover "*.el" "slack/*.el"
             (:exclude "*-test.el")
             (:report-file "/tmp/undercover-report.json"))
 
@@ -15,7 +15,7 @@
 
 (add-to-list 'load-path slack-el-root-path)
 
-(require 'slack-el)
+(require 'slack)
 (require 'espuds)
 (require 'ert)
 
