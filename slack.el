@@ -148,6 +148,15 @@ otherwise return nil."
     (setq slack-new-data '())
     change))
 
+;; Doc: add json content
+;; ((groups . [])
+;;  (ok . t))
+
+;; ((channels . [((num_members . 1) (purpose (last_set . 0) (creator . ) (value . This channel is for team-wide communication and announcements. All team members are in this channel.)) (topic (last_set . 0) (creator . ) (value . )) (members . [U0321RGMR]) (is_member . t) (is_general . t) (is_archived . :json-false) (creator . U0321RGMR) (created . 1416769379) (is_channel . t) (name . general) (id . C0321RGMX))
+;;               ((num_members . 1) (purpose (last_set . 0) (creator . ) (value . A place for non-work banter, links, articles of interest, humor or anything else which you'd like concentrated in some place other than work-related channels.)) (topic (last_set . 0) (creator . ) (value . )) (members . [U0321RGMR]) (is_member . t) (is_general . :json-false) (is_archived . :json-false) (creator . U0321RGMR) (created . 1416769379) (is_channel . t) (name . random) (id . C0321RGMZ))
+;;               ])
+;;  (ok . t))
+
 (defun slack-refresh ()
   "Display data and interface according to `slack-state'."
   (save-excursion
